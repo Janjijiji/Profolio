@@ -94,11 +94,11 @@ let calcScrollValue = () => {
     let scrollProgress = document.getElementById("progress");
     let progressValue = document.getElementById("progress-value");
     let pos = document.documentElement.scrollTop;
-    let calcHeight = document.documentElement.scrollHeight-document.documentElement.clientHeight;
-    let scrollValue = Math.round((pos * 100)/ calcHeight);
-    if (pos > 100){
+    let calcHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    let scrollValue = Math.round((pos * 100) / calcHeight);
+    if (pos > 100) {
         scrollProgress.style.display = "grid";
-    }else{
+    } else {
         scrollProgress.style.display = "none";
     }
     scrollProgress.addEventListener("click", () => {
@@ -111,6 +111,30 @@ window.onload = calcScrollValue;
 // end Skill
 
 
+window.addEventListener('scroll', function () {
+    const header = document.getElementById('header');
+    if (window.scrollY > 0) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+});
+
+
+document.getElementById('download-cv').addEventListener('click', function (event) {
+    event.preventDefault(); // ป้องกันการดำเนินการเริ่มต้นของลิงก์
+    var url = this.href;
+    // เปิดแท็บใหม่
+    window.open(url, '_blank');
+
+    // สร้างลิงก์ใหม่เพื่อดาวน์โหลดไฟล์
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = '';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+});
 
 // const skillsSection = document.getElementById('skills-section');
 
