@@ -744,6 +744,7 @@ svg.radial-progress text {
     width: 250px;
     display: flex;
     align-items: center;
+
     padding: 15px;
     perspective: 100px;
 }
