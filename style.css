@@ -394,6 +394,7 @@ section {
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    background-color: white;
 }
 
 .education h2 {
@@ -532,13 +533,13 @@ section {
     margin: 0 20px;
     background: var(--main-color);
     border-radius: 6px;
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
     position: relative;
 }
 
 .timeline__event__icon i {
-    font-size: 32px;
+    font-size: 50px;
 }
 
 .timeline__event__icon:before {
@@ -760,7 +761,7 @@ section {
 
 .skill-item {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     text-align: center;
     margin: 20px;
@@ -980,6 +981,21 @@ svg.radial-progress text {
     pointer-events: none;
 }
 
+.btn-pro {
+    display: inline-block;
+    padding: 1rem 2.8rem;
+    font-size: 1.5rem;
+    font-family: "DynaPuff", system-ui;
+    color: white;
+    border: 2px solid transparent;
+    letter-spacing: 0.1rem;
+    font-weight: 600;
+    transition: 0.3s ease;
+    cursor: pointer;
+    text-decoration-line: underline;
+    margin-top: 10px;
+}
+
 
 /*End Portfolio */
 
@@ -1097,9 +1113,10 @@ svg.radial-progress text {
     }
 
     .home-circle-1 {
-        bottom: 5rem;
-        width: 35vw;
-        height: 35vw;
+        bottom: 1rem;
+        width: 32vw;
+        height: 32vw;
+        right: 35px;
     }
 
     .home-circle-2 {
@@ -1107,11 +1124,42 @@ svg.radial-progress text {
         width: 30vw;
         height: 30vw;
     }
+
+    .svg-containars {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .svg-containars:nth-child(odd) {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .svg-containars:nth-child(even) {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .skill-item {
+        flex: 1 1 45%;
+        /* Two items per row with some space in between */
+        max-width: 45%;
+    }
 }
 
-@media(max-width:991px) {
+@media(max-width:992px) {
     header {
         padding: 2rem 3%;
+    }
+
+    home-circle-1 {
+        position: absolute;
+        right: 100px;
+
     }
 
     section {
@@ -1489,7 +1537,7 @@ svg.radial-progress text {
         justify-content: space-between;
     }
 
-    .svg-containars:nth-child(1) {
+    /* .svg-containars:nth-child(1) {
         flex: 1 1 100%;
         max-width: 100%;
     }
@@ -1499,16 +1547,12 @@ svg.radial-progress text {
     .svg-containars:nth-child(4) {
         flex: 1 1 45%;
         max-width: 45%;
-    }
-
-    .svg-containars {
-        flex-direction: column;
-        align-items: center;
-    }
+    } */
 
     .skill-item {
         width: 100%;
         max-width: 300px;
+        flex-direction: column;
     }
 
     .portfolio-content {
@@ -1547,4 +1591,7 @@ svg.radial-progress text {
     }
 
 
+}
+@media(max-width:576){
+    
 }
