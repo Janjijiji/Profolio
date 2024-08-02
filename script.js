@@ -137,27 +137,48 @@ document.getElementById('download-cv').addEventListener('click', function (event
     document.body.removeChild(a);
 });
 
-// const skillsSection = document.getElementById('skills-section');
+fetch('home.json')
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        appendData(data);
+    })
+    .catch(function (err) {
+        console.log('error: ' + err);
+    });
 
-// const progressBars = document.querySelectorAll('.progress-bar');
+function appendData(data) {
+    var mainContainer = document.getElementById("home");
+    data.forEach(function (item) {
+        var section = document.createElement('section');
+        var h3 = document.createElement('h3');
+        var h1 = document.createElement('h1');
+        var h3Text = document.createElement('h3');
+        var p = document.createElement('p');
 
-// function showProgress(){
-//     progressBars.forEach(progressBar=> {
-//         const value = progressBar.data-progress;
-//         progressBar.style.opacity = 1;
-//         progressBar.style.width = '90';
+        h3.textContent = item.h3;
+        h1.textContent = item.h1;
+        h3Text.textContent = item['h3-text'];
+        h3Text.classList.add('text-animation');
+        p.textContent = item.p;
 
-//     });
-// }
+        // Apply dynamic styles or classes based on the JSON data
+        if (item.class) {
+            section.classList.add(item.class);
+        }
+        if (item.style) {
+            Object.keys(item.style).forEach(function (key) {
+                section.style[key] = item.style[key];
+            });
+        }
 
-// window.addEventListener('scroll',() => {
-//     const sectionPos = skillsSection.getBoundingClientRect().top;
-//     const screenPos = window.innerHeight;
-//     log.info(sectionPos);
-//     log.info(screenPos);
-//     //if(sectionPos < screenPos){
-//         showProgress();
-//     //}else{
-//         //hideProgress();
-//     //}
-// })
+        section.appendChild(h3);
+        section.appendChild(h1);
+        section.appendChild(h3Text);
+        section.appendChild(p);
+
+        mainContainer.appendChild(section);
+    });
+}
+

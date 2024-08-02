@@ -47,7 +47,7 @@ body {
 
 .header.scrolled {
 
-    background: rgba(255, 215, 215, 0.511);
+    background: rgba(255, 0, 0, 0.511);
     backdrop-filter: blur(20px);
 }
 
@@ -266,50 +266,16 @@ section {
 }
 
 @keyframes words {
-
-    0%,
-    100% {
+    0%, 100% {
         content: "Web designer";
     }
-
-    /* 21%,40%{
-        content: "Wed designer";
-    }
-    41%,60%{
-        content: "Photographer";
-    }
-    61%,80%{
-        content:"Pro";
-    }
-    81%,100%{
-        content: "So Cute";
-    } */
 }
 
 @keyframes typing {
-
-    10%,
-    15%,
-    30%,
-    35%,
-    50%,
-    55%,
-    70%,
-    75%,
-    90%,
-    95% {
+    10%, 15%, 30%, 35%, 50%, 55%, 70%, 75%, 90%, 95% {
         width: 0;
     }
-
-    5%,
-    20%,
-    25%,
-    40%,
-    45%,
-    60%,
-    65%,
-    80%,
-    85% {
+    5%, 20%, 25%, 40%, 45%, 60%, 65%, 80%, 85% {
         width: calc(100% + 8px);
     }
 }
